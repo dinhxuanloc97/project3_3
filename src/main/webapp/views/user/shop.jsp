@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dinhxuanloc
@@ -12,7 +13,8 @@
 <jsp:include page="header.jsp"/>
 <!-- END nav -->
 
-<div class="hero-wrap hero-bread" style="background-image: url('<%=request.getContextPath()%>/views/images/anhdep.png');">
+<div class="hero-wrap hero-bread"
+     style="background-image: url('<%=request.getContextPath()%>/views/images/anhdep.png');">
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center ">
             <div class="col-md-9 ftco-animate text-center">
@@ -28,37 +30,40 @@
         <div class="row justify-content-center">
             <div class="col-md-10 mb-5 text-center">
                 <ul class="product-category">
-
-                    <li><a href="shop.jsp	">Gen 1  </a></li>
-                    <li><a href="shop2.jsp">Gen 2 </a></li>
-                    <li><a href="shop3.jsp">Gen 3 </a></li>
-
+                    <c:forEach items="${listCat}" var="cat">
+                        <li class="${catId==cat.catalogId?'active':''}" >
+                            <a href="<%=request.getContextPath()%>/HomeServlet?action=getProductByCatalog&&catId=${cat.catalogId}">${cat.catalogName}</a></li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>
         <div class="row">
+            <c:forEach items="${listPro}" var="pro">
             <div class="col-md-6 col-lg-3 ftco-animate">
                 <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product01.webp" alt="Colorlib Template">
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
+                    <a href="<%=request.getContextPath()%>/HomeServlet?action=proDetail&&productId=${pro.productId}"
+                       class="img-prod"><img class="img-fluid"
+                                             src="<%=request.getContextPath()%>/views/images/${pro.productImage}"
+                                             alt="${pro.productName}">
                     </a>
                     <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Edition</a></h3>
+                        <h3><a href="#">${pro.productName}</a></h3>
                         <div class="d-flex">
                             <div class="pricing">
-                                <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
+                                <p class="price"><span class="price-sale">${pro.price} $ </span></p>
                             </div>
                         </div>
                         <div class="bottom-area d-flex px-3">
                             <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                <a href="#"
+                                   class="add-to-cart d-flex justify-content-center align-items-center text-center">
                                     <span><i class="ion-ios-menu"></i></span>
                                 </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                <a href="<%=request.getContextPath()%>/ShoppingCartServlet?action=AddCart&&productId=${pro.productId}"
+                                   class="buy-now d-flex justify-content-center align-items-center mx-1">
                                     <span><i class="ion-ios-cart"></i></span>
                                 </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
+                                <a href="<%=request.getContextPath()%>/WishlistServlet?action=AddWish&&productId=${pro.productId}" class="heart d-flex justify-content-center align-items-center ">
                                     <span><i class="ion-ios-heart"></i></span>
                                 </a>
                             </div>
@@ -66,95 +71,16 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product02.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">AF7 </a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product03.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Series 7</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product04.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Nike</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            </c:forEach>
             <jsp:include page="footer.jsp"/>
             <!-- loader -->
-            <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
+            <div id="ftco-loader" class="show fullscreen">
+                <svg class="circular" width="48px" height="48px">
+                    <circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/>
+                    <circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10"
+                            stroke="#F96D00"/>
+                </svg>
+            </div>
 
 
 </body>

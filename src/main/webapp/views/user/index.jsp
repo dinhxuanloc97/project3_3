@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: dinhxuanloc
@@ -5,7 +6,6 @@
   Time: 16:58
   To change this template use File | Settings | File Templates.
 --%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,8 +56,8 @@
                         <span class="flaticon-shipped"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Miễn phí vận chuyển </h3>
-                        <span>Giao hàng tận nơi 0$</span>
+                        <h3 class="heading">MIễn Phí vận Chuyển </h3>
+                        <span>0$</span>
                     </div>
                 </div>
             </div>
@@ -67,8 +67,8 @@
                         <span class="flaticon-diet"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Ưu đãi vượt trội </h3>
-                        <span>Sale tới 50%</span>
+                        <h3 class="heading">Giản giá ưu đãi</h3>
+                        <span>Sale 50%</span>
                     </div>
                 </div>
             </div>
@@ -78,8 +78,8 @@
                         <span class="flaticon-award"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Sản phẩm ưu tú </h3>
-                        <span>Vượt trội tính năng </span>
+                        <h3 class="heading">Sản Phẩm ưu chuộng  </h3>
+                        <span> nổi bật tính  </span>
                     </div>
                 </div>
             </div>
@@ -89,8 +89,8 @@
                         <span class="flaticon-customer-service"></span>
                     </div>
                     <div class="media-body">
-                        <h3 class="heading">Hỗ trợ tư vấn </h3>
-                        <span>Nhiệt tình ,tận tâm </span>
+                        <h3 class="heading">Tư vấn miễn phí </h3>
+                        <span>　Nhiệt tình ,tận tâm  </span>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@
                         <div class="category-wrap-2 ftco-animate img align-self-stretch d-flex" style="background-image: url(<%=request.getContextPath()%>/views/images/anh_15.jpeg);">
                             <div class="text text-center">
                                 <h2>New Product</h2>
-                                <p>Thỏa Mãn Đam Mê</p>
+                                <p>愛好家を満足させる</p>
                                 <p><a href="#" class="btn btn-primary">Shop now</a></p>
                             </div>
                         </div>
@@ -115,27 +115,26 @@
                     <div class="col-md-6">
                         <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(<%=request.getContextPath()%>/views/images/anh_1.jpeg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="shop.jsp">Cộng Tác </a></h2>
+                                <h2 class="mb-0"><a href="href="<%=request.getContextPath()%>/HomeServlet?action=Shop">　Cộng Tác </a></h2>
                             </div>
                         </div>
                         <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<%=request.getContextPath()%>/views/images/anh_2.jpeg);">
                             <div class="text px-3 py-1">
-                                <h2 class="mb-0"><a href="shop.jsp"> Bứt Phá </a></h2>
+                                <h2 class="mb-0"><a href="href="<%=request.getContextPath()%>/HomeServlet?action=Shop"> Bứt Phá </a></h2>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
             <div class="col-md-4">
                 <div class="category-wrap ftco-animate img mb-4 d-flex align-items-end" style="background-image: url(<%=request.getContextPath()%>/views/images/anh_9.jpeg);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="shop.jsp">Vượt Trội </a></h2>
+                        <h2 class="mb-0"><a href="href="<%=request.getContextPath()%>/HomeServlet?action=Shop">Vượt Trội </a></h2>
                     </div>
                 </div>
                 <div class="category-wrap ftco-animate img d-flex align-items-end" style="background-image: url(<%=request.getContextPath()%>/views/images/anh_11.jpeg);">
                     <div class="text px-3 py-1">
-                        <h2 class="mb-0"><a href="shop.jsp">Cải Tiến </a></h2>
+                        <h2 class="mb-0"><a href="href="<%=request.getContextPath()%>/HomeServlet?action=Shop">Cải Tiến </a></h2>
                     </div>
                 </div>
             </div>
@@ -149,240 +148,41 @@
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">Our Products</span>
                 <h2 class="mb-4"> Sản Phẩm Nổi Bật </h2>
-                <p>Đồng hồ Apple Watch là sản phẩm nổi tiếng ở trên thế giới và rất được yêu thích ở Việt Nam. </p>
+                <p>Apple Watch là sản phẩm nổi tiếng thế giới và cũng rất được ưa chuộng tại Việt Nam. </p>
             </div>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product01.webp" alt="Colorlib Template">
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#"> Edition </a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
+            <c:forEach items="${listPro}" var="pro">
+                <div class="col-md-6 col-lg-3 ftco-animate">
+                    <div class="product">
+                        <a href="<%=request.getContextPath()%>/HomeServlet?action=proDetail&&productId=${pro.productId}" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/${pro.productImage}" alt="${pro.productName}">
+                        </a>
+                        <div class="text py-3 pb-4 px-3 text-center">
+                            <h3><a href="#">${pro.productName}</a></h3>
+                            <div class="d-flex">
+                                <div class="pricing">
+                                    <p class="price"><span class="price-sale">${pro.price} $</span></p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product02.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">AF7</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
+                            <div class="bottom-area d-flex px-3">
+                                <div class="m-auto d-flex">
+                                    <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
+                                        <span><i class="ion-ios-menu"></i></span>
+                                    </a>
+                                    <a href="<%=request.getContextPath()%>/ShoppingCartServlet?action=AddCart&&productId=${pro.productId}" class="buy-now d-flex justify-content-center align-items-center mx-1">
+                                        <span><i class="ion-ios-cart"></i></span>
+                                    </a>
+                                    <a href="<%=request.getContextPath()%>/WishlistServlet?action=AddWish&&productId=${pro.productId}" class="heart d-flex justify-content-center align-items-center ">
+                                        <span><i class="ion-ios-heart"></i></span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img  class="img-fluid" src="<%=request.getContextPath()%>/views/images/product03.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">series 7</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product04.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">NiKe</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product005.webp" alt="Colorlib Template">
-                        <span class="status">30%</span>
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">UlTra</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span class="mr-2 price-dc">$120.00</span><span class="price-sale">$80.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product06.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Series GPS</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product007.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Hermes</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-3 ftco-animate">
-                <div class="product">
-                    <a href="product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/product08.jpeg" alt="Colorlib Template">
-                        <div class="overlay"></div>
-                    </a>
-                    <div class="text py-3 pb-4 px-3 text-center">
-                        <h3><a href="#">Ultra(Lte)</a></h3>
-                        <div class="d-flex">
-                            <div class="pricing">
-                                <p class="price"><span>$120.00</span></p>
-                            </div>
-                        </div>
-                        <div class="bottom-area d-flex px-3">
-                            <div class="m-auto d-flex">
-                                <a href="#" class="add-to-cart d-flex justify-content-center align-items-center text-center">
-                                    <span><i class="ion-ios-menu"></i></span>
-                                </a>
-                                <a href="#" class="buy-now d-flex justify-content-center align-items-center mx-1">
-                                    <span><i class="ion-ios-cart"></i></span>
-                                </a>
-                                <a href="#" class="heart d-flex justify-content-center align-items-center ">
-                                    <span><i class="ion-ios-heart"></i></span>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </c:forEach>
         </div>
     </div>
 </section>
@@ -397,7 +197,7 @@
                 <h3><a href="#">Spinach</a></h3>
                 <span class="price">$10 <a href="#">now $5 only</a></span>
                 <div id="timer" class="d-flex mt-5">
-                    <div class="time" id="days"></div>
+<%--                    <div class="time" id="days"></div>--%>
                     <div class="time pl-3" id="hours"></div>
                     <div class="time pl-3" id="minutes"></div>
                     <div class="time pl-3" id="seconds"></div>
@@ -481,13 +281,10 @@
         </div>
     </div>
 </section>
-
-
 <!-- //heet than// -->
 <jsp:include page="footer.jsp"/>
 <!-- loader -->
 <div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#F96D00"/></svg></div>
-
 
 </body>
 </html>

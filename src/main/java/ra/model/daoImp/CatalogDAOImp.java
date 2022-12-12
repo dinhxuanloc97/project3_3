@@ -25,11 +25,11 @@ public class CatalogDAOImp implements CatalogDAO<Catalog,Integer> {
            ResultSet rs = callSt.executeQuery();
            listCatalog = new ArrayList<>();
             while (rs.next()) {
-                Catalog pr = new Catalog();
-                pr.setCatalogId(rs.getInt("catalogId"));
-                pr.setCatalogName(rs.getString("catalogName"));
-                pr.setCatalogStatus(rs.getBoolean("catalogStatus"));
-                listCatalog.add(pr);
+                Catalog ca = new Catalog();
+                ca.setCatalogId(rs.getInt("catalogId"));
+                ca.setCatalogName(rs.getString("catalogName"));
+                ca.setCatalogStatus(rs.getBoolean("catalogStatus"));
+                listCatalog.add(ca);
             }
         } catch (Exception e) {
           e.printStackTrace();
@@ -87,7 +87,6 @@ public class CatalogDAOImp implements CatalogDAO<Catalog,Integer> {
         }
         return cat;
     }
-
     @Override
     public boolean save(Catalog catalog)  {
         boolean result = true;
@@ -115,7 +114,7 @@ public class CatalogDAOImp implements CatalogDAO<Catalog,Integer> {
         CallableStatement callSt = null;
         try {
             conn = ConnectionDB.openConnection();
-            callSt = conn.prepareCall("{call proc_UpdateCatalog(?,?,?)}");
+            callSt = conn.prepareCall("{call proc_updateCatalog(?,?,?)}");
             callSt.setInt(1,catalog.getCatalogId());
             callSt.setString(2,catalog.getCatalogName());
             callSt.setBoolean(3,catalog.getCatalogStatus());
@@ -129,7 +128,6 @@ public class CatalogDAOImp implements CatalogDAO<Catalog,Integer> {
         }
         return result;
     }
-
     @Override
     public boolean delete(Integer id)  {
         boolean result = true;
@@ -137,7 +135,7 @@ public class CatalogDAOImp implements CatalogDAO<Catalog,Integer> {
         CallableStatement callSt = null;
         try {
             conn = ConnectionDB.openConnection();
-            callSt = conn.prepareCall("{call proc_DeleteCatalog(?)}");
+            callSt = conn.prepareCall("{call proc_UpdateCatalogStatus(?)}");
             callSt.setInt(1,id);
             callSt.executeUpdate();
         }catch (SQLException ex1){

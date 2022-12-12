@@ -1,8 +1,10 @@
+
 package ra.controller;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import ra.model.entity.Catalog;
+import ra.model.entity.User;
 import ra.model.service.CatalogService;
 import ra.model.serviceImp.CatalogServiceImp;
 
@@ -19,8 +21,11 @@ public class CatalogServlet extends HttpServlet {
     private static final Gson GSON = new GsonBuilder().create();
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action.equals("GetAll")){
+            HttpSession session = request.getSession();
+            User user =(User) session.getAttribute("userLogin");
             getAllCatalog(request,response);
         } else if (action.equals("GetById")) {
             int catalogId = Integer.parseInt(request.getParameter("catalogId"));
@@ -32,6 +37,7 @@ public class CatalogServlet extends HttpServlet {
             Writer out = response.getWriter();
             out.write(json);
             out.flush();
+
         }
     }
 
@@ -40,9 +46,9 @@ public class CatalogServlet extends HttpServlet {
         request.setAttribute("listCat",listCat);
         request.getRequestDispatcher("views/admin/catalogs.jsp").forward(request,response);
     }
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
         String action = request.getParameter("action");
         if (action.equals("Create")) {
             Catalog catalog = new Catalog();
@@ -66,11 +72,15 @@ public class CatalogServlet extends HttpServlet {
             boolean result = catalogService.update(cat);
             if (result){
                 getAllCatalog(request,response);
+            }else {
+                request.getRequestDispatcher("views/admin/error.jsp").forward(request,response);
             }
         }else if (action.equals("Search")) {
             String prName = request.getParameter("searchName");
             request.setAttribute("listCat", catalogService.searchByName(prName));
             request.getRequestDispatcher("views/admin/catalogs.jsp").forward(request, response);
+        }else {
+            request.getRequestDispatcher("views/admin/error.jsp").forward(request,response);
         }
     }
 }

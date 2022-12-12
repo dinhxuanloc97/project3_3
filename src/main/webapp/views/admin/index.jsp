@@ -49,17 +49,17 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="catalogs.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/CatalogServlet?action=GetAll">
                         <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="product.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/ProductServlet?action=GetAll">
                         <i class="align-middle" data-feather="square"></i> <span class="align-middle">Product</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="user.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/UserServlet?action=GetAll">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                     </a>
                 </li>
@@ -68,7 +68,6 @@
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">Contact</span>
                     </a>
                 </li>
-
             </ul>
         </div>
     </nav>
@@ -239,7 +238,7 @@
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#"
                            data-bs-toggle="dropdown">
-                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
+                            <img src="<%=request.getContextPath()%>/views/admin/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1"
                                  alt="Charles Hall" />
                             <span class="text-dark">Chris Hung</span>
                         </a>
@@ -570,7 +569,7 @@
     </div>
 </div>
 
-<script src="js/app.js"></script>
+<script src="<%=request.getContextPath()%>/views/admin/js/app.js"></script>
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {

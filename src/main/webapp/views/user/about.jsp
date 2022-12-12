@@ -15,7 +15,7 @@
     <div class="container">
         <div class="row no-gutters slider-text align-items-center justify-content-center">
             <div class="col-md-9 ftco-animate text-center">
-                <p class="breadcrumbs"><span class="mr-2"><a href="index.html">Home</a></span> <span>About us</span></p>
+                <p class="breadcrumbs"><span class="mr-2"><a href="<%=request.getContextPath()%>/views/user/index.html">Home</a></span> <span>About us</span></p>
                 <h1 class="mb-0 bread">About us</h1>
             </div>
         </div>
@@ -33,13 +33,13 @@
             <div class="col-md-7 py-5 wrap-about pb-md-5 ftco-animate">
                 <div class="heading-section-bold mb-4 mt-md-5">
                     <div class="ml-md-0">
-                        <h2 class="mb-4">Chào Mừng Đến Với ToKe 97 </h2>
+                        <h2 class="mb-4">Chào Mừng Đến Với ToKei 97 </h2>
                     </div>
                 </div>
                 <div class="pb-md-5">
                     <p>Đồng hồ Apple Watch là sản phẩm nổi tiếng ở trên thế giới và rất được yêu thích ở Việt Nam. Nếu bạn cũng đang muốn tìm hiểu về chiếc smartwatch đến từ thương hiệu nổi tiếng Apple, hãy đồng hành cùng toke 97 .</p>
                     <p>Thương hiệu Apple là một thương hiệu có tiếng ở trên thế giới. Mọi sản phẩm do Apple cung cấp đều được đánh giá cao, điều này được chứng minh qua các sản phẩm nổi tiếng như điện thoại iPhone, Macbook và đồng hồ thông minh Apple Watch….</p>
-                    <p><a href="shop.html" class="btn btn-primary">Shop now</a></p>
+                    <p><a href=<%=request.getContextPath()%>/HomeServlet?action=Shop" class="btn btn-primary">Shop now</a></p>
                 </div>
             </div>
         </div>

@@ -1,4 +1,4 @@
-<%--
+<%@ page import="ra.controller.ProductServlet" %><%--
   Created by IntelliJ IDEA.
   User: dinhxuanloc
   Date: 23/11/2022
@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,7 +37,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index.jsp">
-                <span class="align-middle">AdminKit</span>
+                <span class="align-middle">Admin</span>
             </a>
 
             <ul class="sidebar-nav">
@@ -45,12 +46,12 @@
                 </li>
                 <li class="sidebar-item ">
                     <a class="sidebar-link" href="index.jsp">
-                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
+                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Home </span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="index.jsp">
-                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/CatalogServlet?action=GetAll">
+                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Catalogs</span>
                     </a>
                 </li>
                 <li class="sidebar-item active">
@@ -59,7 +60,7 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="user.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/UserServlet?action=GetAll">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                     </a>
                 </li>
@@ -228,7 +229,7 @@
                         </a>
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
+                            <img src="<%=request.getContextPath()%>/views/admin/img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
                             <span class="text-dark">Chris Hung</span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
@@ -237,8 +238,7 @@
                             <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i>
                                 Analytics</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="index.html"><i class="align-middle me-1"
-                                                                          data-feather="settings"></i> Settings &
+                            <a class="dropdown-item" href="index.html"><i class="align-middle me-1" data-feather="settings"></i> Settings &
                                 Privacy</a>
                             <a class="dropdown-item" href="#"><i class="align-middle me-1"
                                                                  data-feather="help-circle"></i> Help Center</a>
@@ -257,14 +257,14 @@
                         <h3 class="card-title">Demo Category Table</h3>
                         <nav class="navbar navbar-expand-lg bg-light">
                             <div class="container-fluid">
-                                <a class="navbar-brand" href="#">
-                                    <button type="button" class="btn btn-success">+ Add new Product</button>
+                                <a class="navbar-brand" href="<%=request.getContextPath()%>/ProductServlet?action=NewProduct">
+                                    <button type="button" class="btn btn-success">Add new Product</button>
                                 </a>
-                                <form class="d-flex" role="search">
+                                <form class="d-flex" role="search" method="post" action="<%=request.getContextPath()%>/ProductServlet">
                                     <input class="form-control me-2 fst-italic" type="search"
                                            placeholder="Enter product's name... "
-                                           aria-label="Search">
-                                    <button class="btn btn-outline-success" type="submit">Search</button>
+                                           aria-label="Search"  name="searchName" placeholder="Enter product ">
+                                    <button class="btn btn-outline-success" name="action" value="Search" type="submit">Search</button>
                                 </form>
                             </div>
                         </nav>
@@ -277,177 +277,36 @@
                                 <th>ID</th>
                                 <th>Name</th>
                                 <th>Image</th>
-                                <th>Description</th>
-                                <th>Created Date</th>
                                 <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Descriptions</th>
+                                <th>Catalog</th>
                                 <th>Status</th>
-                                <th>Category</th>
+                                <th>Detail</th>
                                 <th colspan="2">Action</th>
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td>Product 1</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 1</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Product 2</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 2</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Product 3</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 3</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Product 4</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 4</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>5</td>
-                                <td>Product 5</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 5</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>6</td>
-                                <td>Product 6</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 6</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>7</td>
-                                <td>Product 7</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 7</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>8</td>
-                                <td>Product 8</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 8</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>9</td>
-                                <td>Product 9</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 9</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>10</td>
-                                <td>Product 10</td>
-                                <td><img src="img/avatars/avatar-5.jpg" width="30%" alt="#"></td>
-                                <td>Lorem ipsum dolor sit amet, consectetur adipiscing elit</td>
-                                <td>28/10/2022</td>
-                                <td>100 $</td>
-                                <td>Ready</td>
-                                <td>Category 10</td>
-                                <td>
-                                    <button type="button" class="btn btn-warning">Edit</button>
-                                </td>
-                                <td>
-                                    <button type="button" class="btn btn-danger">Delete</button>
-                                </td>
-                            </tr>
+                            <c:forEach items="${listPro}" var="pro">
+                                <tr>
+                                    <td>${pro.productId}</td>
+                                    <td>${pro.productName}</td>
+                                    <td><img style="width: 50px;height: 50px" src="<%=request.getContextPath()%>views/images/${pro.productImage}"/></td>
+                                    <td>${pro.price}</td>
+                                    <td>${pro.quantity}</td>
+                                    <td>${pro.discription}</td>
+                                    <td>${pro.catalogId}</td>
+                                    <td>${pro.productStatus?'Active':"Inactive"}</td>
+                                    <td>
+                                        <a href="<%=request.getContextPath()%>/ProductServlet?action=GetDetail&&productId=${pro.productId}">Detail</a>
+                                    </td>
+                                    <td>
+                                        <a href="<%=request.getContextPath()%>/ProductServlet?action=Update&&productId=${pro.productId}">Update</a>
+                                        <a href="<%=request.getContextPath()%>/ProductServlet?action=Delete&&productId=${pro.productId}">Delete</a>
+                                    </td>
+                                </tr>
+                            </c:forEach>
                             </tbody>
-
                         </table>
                     </div>
                     <!-- /.card-body -->
@@ -467,7 +326,6 @@
                 </div>
             </div>
         </main>
-
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row text-muted">
@@ -499,9 +357,7 @@
         </footer>
     </div>
 </div>
-
 <script src="js/app.js"></script>
-
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

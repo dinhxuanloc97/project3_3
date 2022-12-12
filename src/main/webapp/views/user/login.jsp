@@ -6,6 +6,8 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,44 +26,52 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="<%=request.getContextPath()%>/views/css/css/login.css">
-
 </head>
-
 <body>
 <div class="login-box">
   <h2>LOGIN</h2>
-  <form>
+  <form action="<%=request.getContextPath()%>/UserServlet?action=login" method="post"     id="loginFrom" >
+
     <div class="user-box">
-      <input type="text" name="" required="">
+      <input type="text" name="userName" required="">
       <label>Username</label>
     </div>
     <div class="user-box">
-      <input type="password" name="" required="">
+      <input type="password" name="password" required="">
       <label>Password</label>
     </div>
-    <a href="login.jsp\
-">
+    <p style="color: red"><c:if test="${errorLogin!=null}">${errorLogin}</c:if></p>
+<%--    <a >--%>
+<%--      <button  type="submit" name="action" value="login" class="btn btn-dark" >--%>
+<%--        <span></span>--%>
+<%--        <span></span>--%>
+<%--        <span></span>--%>
+<%--        <span></span>--%>
+<%--        Login--%>
+<%--      </button>--%>
+<%--    </a>--%>
+
+    <a onclick="document.getElementById('loginFrom').submit()" class="login2">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
       Login
     </a>
-    <a  style="margin-left :50px" href="regiter.jsp">
+    <a  style="margin-left :50px" href="register.jsp" class="login2">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      regiter
+      Regiter
     </a>
-    <a style="margin: 90px;"  href="index.jsp">
+    <a style="margin: 90px;"  href="index.jsp" class="login2">
       <span></span>
       <span></span>
       <span></span>
       <span></span>
-      home
+      Home
     </a>
-
   </form>
 </div>
 </body>

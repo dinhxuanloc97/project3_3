@@ -26,10 +26,12 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-6 mb-5 ftco-animate">
-                <a href="<%=request.getContextPath()%>/views/images/product005.webp" class="image-popup"><img src="<%=request.getContextPath()%>/views/images/product005.webp" class="img-fluid" alt="Colorlib Template"></a>
+<%--                <a href="<%=request.getContextPath()%>/views/user/product.jsp" class="img-prod"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/${pro.productImage}" alt=">--%>
+<%--                </a>--%>
+                <a  class="image-popup"><img class="img-fluid" src="<%=request.getContextPath()%>/views/images/${pro.productImage}"  alt="Colorlib Template"></a>
             </div>
             <div class="col-lg-6 product-details pl-md-5 ftco-animate">
-                <h3>Bell Pepper</h3>
+                <h3>${pro.productName}</h3>
                 <div class="rating d-flex">
                     <p class="text-left mr-4">
                         <a href="#" class="mr-2">5.0</a>
@@ -46,9 +48,9 @@
                         <a href="#" class="mr-2" style="color: #000;">500 <span style="color: #bbb;">Sold</span></a>
                     </p>
                 </div>
-                <p class="price"><span>$120.00</span></p>
-                <p>A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth. Text should turn around and return to its own, safe country. But nothing the copy said could convince her and so it didn’t take long until.
-                </p>
+                <p class="price"><span> ${pro.price} $ </span></p>
+                <p>${pro.discription}</p>
+                <p class="price"><span>${pro.quantity} PCS  </span></p>
                 <div class="row mt-4">
                     <div class="col-md-6">
                         <div class="form-group d-flex">
@@ -73,20 +75,18 @@
                     </div>
                     <div class="w-100"></div>
                     <div class="col-md-12">
-                        <p style="color: #000;">600 kg available</p>
+<%--                        <p style="color: #000;">600 kg available</p>--%>
                     </div>
                 </div>
-                <p><a href="cart.html" class="btn btn-black py-3 px-5">Add to Cart</a></p>
+                <p><a href="<%=request.getContextPath()%>/ShoppingCartServlet?action=AddCart&&productId=${pro.productId}" class="btn btn-black py-3 px-5">Add to Cart</a></p>
             </div>
         </div>
     </div>
 </section>
-
 <!-- loader -->
 <jsp:include page="footer.jsp"/>
 <script>
     $(document).ready(function(){
-
         var quantitiy=0;
         $('.quantity-right-plus').click(function(e){
 

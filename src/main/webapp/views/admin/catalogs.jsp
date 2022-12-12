@@ -37,7 +37,7 @@
     <nav id="sidebar" class="sidebar js-sidebar">
         <div class="sidebar-content js-simplebar">
             <a class="sidebar-brand" href="index.jsp">
-                <span class="align-middle">AdminKit</span>
+                <span class="align-middle">Admin</span>
             </a>
 
             <ul class="sidebar-nav">
@@ -46,21 +46,21 @@
                 </li>
                 <li class="sidebar-item ">
                     <a class="sidebar-link" href="index.jsp">
-                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Dashboard</span>
+                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Home</span>
                     </a>
                 </li>
                 <li class="sidebar-item active">
-                    <a class="sidebar-link" href="#">
-                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Category</span>
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/views/admin/catalogs.jsp">
+                        <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Catalogs</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="product.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/ProductServlet?action=GetAll">
                         <i class="align-middle" data-feather="square"></i> <span class="align-middle">Product</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link" href="user.jsp">
+                    <a class="sidebar-link" href="<%=request.getContextPath()%>/UserServlet?action=GetAll">
                         <i class="align-middle" data-feather="user"></i> <span class="align-middle">User</span>
                     </a>
                 </li>
@@ -229,8 +229,8 @@
                         </a>
 
                         <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                            <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
-                            <span class="text-dark">Chris Hung</span>
+                            <img src="<%=request.getContextPath()%>/views/admin/img/avatars/.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall"/>
+                            <span class="text-dark">Ad noc </span>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end">
                             <a class="dropdown-item" href="#"><i class="align-middle me-1"
@@ -250,7 +250,6 @@
                 </ul>
             </div>
         </nav>
-
         <main class="content">
             <div class="container-fluid p-0">
                 <div class="card">
@@ -259,7 +258,7 @@
                         <nav class="navbar navbar-expand-lg bg-light">
                             <div class="container-fluid">
                                <a class="navbar-brand" href="#">
-                                    <button type="button"  id="newCatalogLabel"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCatalogModal" >+ Add new Category</button>
+                                    <button type="button"  id="newCatalogLabel"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#newCatalogModal" >Add New Catalog</button>
                                     <!-- Modal Create New Catalog -->
                                     <div class="modal fade" id="newCatalogModal" tabindex="-1" aria-labelledby="newCatalogLabel" aria-hidden="true">
                                         <div class="modal-dialog">
@@ -292,7 +291,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                   <%--/// modal create//--%>
+                                   <%--/// modal delete //--%>
                                    <div class="modal fade" id="deleteCatalogModal" tabindex="-1" aria-labelledby="deleteCatalogModalLabel"
                                         aria-hidden="true">
                                        <div class="modal-dialog">
@@ -350,7 +349,7 @@
                                        </div>
                                    </div>
                                 </a>
-                                <form class="d-flex" role="search" method="post">
+                                <form class="d-flex" role="search" method="post" action="<%=request.getContextPath()%>/CatalogServlet">
                                     <input class="form-control me-2 fst-italic" type="search" name="searchName" placeholder="Enter catalog "
                                            aria-label="Search">
                                     <button class="btn btn-outline-success" type="submit" name="action" value="Search" >Search</button>
@@ -379,12 +378,11 @@
                                         <a type="button" href="#updateCatalogModal" class="update" data-bs-toggle="modal">Update</a>
                                         <a type="button" href="#deleteCatalogModal" class="delete" data-bs-toggle="modal">Delete</a>
                                         <input type="hidden" id="catId" value="${cat.catalogId}"/>
+<%--                                        <a href="<%=request.getContextPath()%>/ProductServlet?action=Delete&&catalogId=${cat.catalogId}">Delete</a>--%>
                                     </td>
                                 </tr>
                             </c:forEach>
-
                             </tbody>
-
                         </table>
                     </div>
                     <nav aria-label="Page navigation example ">
@@ -404,7 +402,6 @@
                 </div>
             </div>
         </main>
-
         <footer class="footer">
             <div class="container-fluid">
                 <div class="row text-muted">
